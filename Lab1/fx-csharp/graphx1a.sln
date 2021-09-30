@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphx1a", "graphx1a\graphx1a.csproj", "{1B4DC80D-B0C6-4A7D-B8B7-DE6783F23DB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FXTests", "FXTests\FXTests.csproj", "{749CABBD-A210-4AD4-9E38-6B1AA100A4BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B4DC80D-B0C6-4A7D-B8B7-DE6783F23DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4DC80D-B0C6-4A7D-B8B7-DE6783F23DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4DC80D-B0C6-4A7D-B8B7-DE6783F23DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4DC80D-B0C6-4A7D-B8B7-DE6783F23DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{749CABBD-A210-4AD4-9E38-6B1AA100A4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{749CABBD-A210-4AD4-9E38-6B1AA100A4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{749CABBD-A210-4AD4-9E38-6B1AA100A4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{749CABBD-A210-4AD4-9E38-6B1AA100A4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E2B9601-105C-4E4F-8397-4A48A3969A8E}
+	EndGlobalSection
+EndGlobal
