@@ -14,27 +14,39 @@ namespace graphx1a
     public partial class Form1 : Form
     {
         Graphics g = null;
-
+        FX Fx;
         public Form1()
         {
             InitializeComponent();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FX f = new FX(panel1)
+            Fx = new FX(panel1)
             {
                 Scale = 20
             };
-            var from = new Point(int.Parse(textBox1.Text), int.Parse(textBox2.Text));
-            var to = new Point(int.Parse(textBox3.Text), int.Parse(textBox4.Text));
-            f.DrawLineACDA(from,to);
-            panel1.Refresh();
-
+            this.Height = 600;
+            this.Width = 510;
+            Rebuild();
+            //this.SizeChanged += (o, s) =>  // Игрушка дьявола. Дополнительное задание, лучше не трогать.
+            //{
+            //Rebuild();
+            //};
         }
 
-
+        private void Rebuild() 
+        {
+            Fx.Clear();
+            int height = (this.Height - 39); // 39 Пикселей размер шапки в 10й винде
+            int width = this.Width;
+            var from1 = new Point(0, height / Fx.Scale - 1);
+            var to1 = new Point(width / Fx.Scale / 2, 0);
+            Fx.DrawLine(from1, to1, Color.Red);
+            var from2 = new Point(width / Fx.Scale / 2, 0);
+            var to2 = new Point(width / Fx.Scale - 1, height / Fx.Scale - 1);
+            Fx.DrawLine(from2, to2, Color.Red);
+            var from = new Point(0, height / Fx.Scale - 1);
+            var to = new Point(width / Fx.Scale - 1, height / Fx.Scale - 1);
+            Fx.DrawLineACDA(from, to, Color.Green, 10);
+            Fx.Refresh();
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

@@ -30,14 +30,6 @@ namespace LazyFX
             }
         }
 
-        public void ShowGrid(int w, int h) 
-        {
-            for (int i = 0; i < h/Scale; i++)
-            {
-                
-            }
-        }
-
         public void DrawPixel(Pixel pixel)
         {
             pixel.Scale = Scale;
@@ -79,7 +71,7 @@ namespace LazyFX
             Control.Refresh();
         }
 
-        public void DrawLineACDA(Point from, Point to)
+        public void DrawLineACDA(Point from, Point to, Color color, int scale)
         {
             Point pointA = from;
             Point pointB = to;
@@ -94,7 +86,7 @@ namespace LazyFX
                 dy = pointB.Y - pointA.Y;
             }
             float d;
-            DrawPixel(new Pixel(pointA));
+            DrawPixel(new Pixel(pointA,color,scale));
             var at = new PointF((float)pointA.X, (float)pointA.Y);
             if (dx == 0)
             {
@@ -103,7 +95,7 @@ namespace LazyFX
                 {
                     at.Y = at.Y + 1;
                     at.X = (at.X + d);
-                    DrawPixelAndUpdate(new Pixel(FX.RoundToIntPoint(at)));
+                    DrawPixel(new Pixel(FX.RoundToIntPoint(at),color,scale));
                 }
                 //y
             }
@@ -114,7 +106,7 @@ namespace LazyFX
                 {
                     at.Y = at.Y + d;
                     at.X = at.X + 1;
-                    DrawPixelAndUpdate(new Pixel(FX.RoundToIntPoint(at)));
+                    DrawPixel(new Pixel(FX.RoundToIntPoint(at),color,scale));
                 }
             }
             else if (dx >= dy)
@@ -124,7 +116,7 @@ namespace LazyFX
                 {
                     at.Y = at.Y + d;
                     at.X = at.X + 1;
-                    DrawPixelAndUpdate(new Pixel(FX.RoundToIntPoint(at)));
+                    DrawPixel(new Pixel(FX.RoundToIntPoint(at), color, scale));
                 }
             }
             else
@@ -134,12 +126,17 @@ namespace LazyFX
                 {
                     at.Y = at.Y + 1;
                     at.X = at.X + d;
-                    DrawPixelAndUpdate(new Pixel(FX.RoundToIntPoint(at)));
+                    DrawPixel(new Pixel(FX.RoundToIntPoint(at), color, scale));
                 }
             }
         }
 
-        public void DrawLine(Point from, Point to)
+        public void DrawLineACDA(Point from, Point to) 
+        {
+            DrawLineACDA(from, to, Color.Black, Scale);
+        }
+
+        public void DrawLine(Point from, Point to, Color color)
         {
             Point pointA = from;
             Point pointB = to;
@@ -177,7 +174,7 @@ namespace LazyFX
                 delta = dx << 1;
             }
             Point at = pointA;
-                    DrawPixelAndUpdate(at);
+            DrawPixel(new Pixel(at,color, Scale));
             if (dy >= dx)
             {
                 while (at != pointB)
@@ -189,7 +186,7 @@ namespace LazyFX
                         at.X += deltaX;
                         d -= delta;
                     }
-                    DrawPixelAndUpdate(at);
+                    DrawPixel(new Pixel(at, color, Scale));
                 }
                 return;
             }
@@ -204,7 +201,7 @@ namespace LazyFX
                     at.Y += 1;
                     d -= delta;
                     }
-                    DrawPixelAndUpdate(at);
+                    DrawPixel(new Pixel(at, color, Scale));
                 }
                 return;
             }
@@ -219,5 +216,11 @@ namespace LazyFX
         {
             return new Point(Convert.ToInt32(point.X), Convert.ToInt32(point.Y));
         }
+
+        public void Clear() 
+        {
+            Pixels.Clear();
+        }
     }
 }
+//r<3a

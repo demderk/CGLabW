@@ -41,6 +41,12 @@ namespace LazyFX
             Color = color;
         }
 
+        public Pixel(Point point, Color color, int scale) : this(point)
+        {
+            Color = color;
+            Scale = scale;
+        }
+
         public override string ToString()
         {
             return $"X={X},Y={Y}";
