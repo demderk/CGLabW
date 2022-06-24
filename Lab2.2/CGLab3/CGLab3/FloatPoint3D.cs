@@ -1,4 +1,6 @@
 ﻿using System;
+using OpenTK.Mathematics;
+
 namespace CGLab3
 {
 
@@ -20,6 +22,22 @@ namespace CGLab3
             X = x / (float)resolution;
             Y = y / (float)resolution;
             Z = z / (float)resolution;
+        }
+
+        public FloatPoint3D(float x, float y, float z) : this()
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
+
+        public Vector3 ToVector3() => new Vector3(X, Y, Z);
+
+        public Point3D ToPoint3D => new Point3D((int)(X * 100), (int)(Y * 100), (int)(Z * 100)); // TODO: EXPEREMENTAL
+
+        public override string ToString()
+        {
+            return $"{X} {Y} {Z}";
         }
     }
 }

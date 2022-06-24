@@ -47,6 +47,11 @@ namespace CGLab3
             BuildFloatPoints();
         }
 
+        public Vertex(int resolution, FloatPoint3D floatPoint3D)
+        {
+            Position = new Point3D(-1, -1, -1);
+        }
+
         public Vertex(int x, int y, int z, Color color)
         {
             Position = new Point3D(x, y, z);

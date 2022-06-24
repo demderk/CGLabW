@@ -57,7 +57,7 @@ namespace CGLab3
 		{
             paneObject.ShapeChanged += (s, h) => UpdateVBO();
 			Shapes.Add(paneObject);
-			_geometry.AddRange(paneObject.GetVertices());
+			_geometry.AddRangeAndUpdate(paneObject.GetVertices());
             UpdateVBO();
 		}
 
@@ -75,8 +75,9 @@ namespace CGLab3
             _geometry.Clear();
             foreach (var item in Shapes)
             {
-                _geometry.AddRange(item.GetVertices());
+                _geometry.AddRangeAndUpdate(item.GetVertices());
             }
+            UpdateVBO();
         }
 
         private void UpdateVBO()

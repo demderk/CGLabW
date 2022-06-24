@@ -1,4 +1,6 @@
 ﻿using System;
+using OpenTK.Mathematics;
+
 namespace CGLab3
 {
     public struct Point3D
@@ -13,13 +15,6 @@ namespace CGLab3
             Y = y;
             Z = z;
         }
-
-        public static Point3D operator +(Point3D first, Point3D second)
-        {
-            throw new NotImplementedException();
-            return new Point3D(first.X + second.X, first.Y + second.Y, first.Z + second.Z);
-        }
-
     }
 }
 

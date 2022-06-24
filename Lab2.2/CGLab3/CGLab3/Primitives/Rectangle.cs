@@ -72,6 +72,8 @@ namespace CGLab3.Primitives
             AddVertex(d);
         }
 
+
+
     }
 }
 

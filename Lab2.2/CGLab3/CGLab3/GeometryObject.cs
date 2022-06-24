@@ -33,13 +33,7 @@ namespace CGLab3
             List<float> normals = new List<float>();
             foreach (var item in _vertices)
             {
-                newColors.Add(item.ColorFloat.X);
-                newColors.Add(item.ColorFloat.Y);
-                newColors.Add(item.ColorFloat.Z);
-                newColors.Add(item.ColorFloat.W);
-                newPos.Add(item.PositionFloat.X);
-                newPos.Add(item.PositionFloat.Y);
-                newPos.Add(item.PositionFloat.Z);
+
                 data.Add(item.PositionFloat.X);
                 data.Add(item.PositionFloat.Y);
                 data.Add(item.PositionFloat.Z);
@@ -50,9 +44,7 @@ namespace CGLab3
                 data.Add(item?.NormalFloat.X ?? 0);
                 data.Add(item?.NormalFloat.Y ?? 0);
                 data.Add(item?.NormalFloat.Z ?? 0);
-                normals.Add(item?.NormalFloat.X ?? 0);
-                normals.Add(item?.NormalFloat.Y ?? 0);
-                normals.Add(item?.NormalFloat.Z ?? 0);
+
             }
             PointMatrix = newPos.ToArray();
             ColorsMatrix = newColors.ToArray();
@@ -60,15 +52,28 @@ namespace CGLab3
             NormalMatrix = normals.ToArray();
         }
 
+        public void Update() => RebuildMatrices();
+
         public void Add(Vertex point)
         {
             _vertices.Add(point);
+        }
+
+
+        public void AddAndUpdate(Vertex point)
+        {
+            Add(point);
             RebuildMatrices();
         }
 
         public void AddRange(params Vertex[] points)
         {
             _vertices.AddRange(points);
+        }
+
+        public void AddRangeAndUpdate(params Vertex[] points)
+        {
+            AddRange(points);
             RebuildMatrices();
         }
 
