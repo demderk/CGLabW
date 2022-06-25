@@ -61,15 +61,6 @@ namespace CGLab3
             UpdateVBO();
 		}
 
-        public void ChangeResolution(int resolution)
-        {
-            foreach (var item in Shapes)
-            {
-                item.ChangeResolution(resolution);
-            }
-            RebuildPoints();
-        }
-
         private void RebuildPoints()
         {
             _geometry.Clear();

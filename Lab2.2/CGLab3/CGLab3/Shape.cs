@@ -17,8 +17,6 @@ namespace CGLab3
 
         public float[] Colors => _geometry.ColorsMatrix;
 
-        public int Resolution { get; set; } = 100;
-
         public int PointCount => _geometry.Count;
 
         public event EventHandler ShapeChanged;
@@ -26,11 +24,9 @@ namespace CGLab3
         private void OnShapeChanged() => ShapeChanged?.Invoke(this, null);
 
         public Vertex[] GetVertices() => _geometry.Vertices;
-        public void SetNormal(Point3D point) => _geometry.SetNormal(point);
         public void SetNormal(FloatPoint3D point) => _geometry.SetNormal(point);
-        public void ChangeResolution(int resolution) => _geometry.ChangeResolution(resolution);
-        protected void AddVertex(int x, int y, int z, Color color) => _geometry.Add(new Vertex(Resolution, x, y, z, color));
-        protected void AddVertex(Point3D point) => _geometry.Add(new Vertex(point));
+        protected void AddVertex(FloatPoint3D point) => _geometry.Add(new Vertex(point));
+        //protected void AddVertex(Point3D point) => _geometry.Add(new Vertex(point.ToFloatPoint3D()));
         protected void AddVertex(Vertex point) => _geometry.Add(point);
 
         protected void Merge(Shape shape)
@@ -41,11 +37,17 @@ namespace CGLab3
             }
         }
 
-        protected Shape ColorFill(Color color)
-        {
-            _geometry.ColorFill(color);
-            return this;
-        }
+		protected void GenNormal(FloatPoint3D f, FloatPoint3D s, FloatPoint3D t)
+		{
+			var a = f;
+			var b = s;
+			var c = t;
+			FloatPoint3D vVector1 = Vec(c, a);
+			FloatPoint3D vVector2 = Vec(b, a);
+			FloatPoint3D vNormal = Cross(vVector1, vVector2);
+			var normal = Normalize(vNormal);
+			SetNormal(normal);
+		}
 
 		private FloatPoint3D Cross(FloatPoint3D first, FloatPoint3D second)
 		{
@@ -82,17 +84,18 @@ namespace CGLab3
 			return result;
 		}
 
-		public void GenNormal(Point3D f, Point3D s, Point3D t)
+        public Shape ColorFill(Color color)
+        {
+            _geometry.ColorFill(color);
+            return this;
+        }
+
+		public Shape MoveBy(float x, float y, float z)
 		{
-			var a = new FloatPoint3D(f, Resolution);
-			var b = new FloatPoint3D(s, Resolution);
-			var c = new FloatPoint3D(t, Resolution);
-			FloatPoint3D vVector1 = Vec(c, a);
-			FloatPoint3D vVector2 = Vec(b, a);
-			FloatPoint3D vNormal = Cross(vVector1, vVector2);
-			var normal = Normalize(vNormal);
-			SetNormal(normal);
+			_geometry.MoveBy(x, y, z);
+			return this;
 		}
+
 	}
 }
 

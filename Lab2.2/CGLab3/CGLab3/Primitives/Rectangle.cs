@@ -7,14 +7,14 @@ namespace CGLab3.Primitives
 {
     public class Rectangle : Shape
     {
-        public Point3D[] ActualPoints { get; private set; } = new Point3D[4]; 
+        public FloatPoint3D[] ActualPoints { get; private set; } = new FloatPoint3D[4]; 
 
-        public Rectangle(Point3D a, Point3D b, Point3D c, Point3D d) : this(a, b, c, d, false)
+        public Rectangle(FloatPoint3D a, FloatPoint3D b, FloatPoint3D c, FloatPoint3D d) : this(a, b, c, d, false)
         {
 
         }
 
-        public Rectangle(Point3D a, Point3D b, Point3D c, Point3D d, bool autoNormalDisabled)
+        public Rectangle(FloatPoint3D a, FloatPoint3D b, FloatPoint3D c, FloatPoint3D d, bool autoNormalDisabled)
         {
             Build(a, b, c, d);
             if (!autoNormalDisabled)
@@ -23,23 +23,18 @@ namespace CGLab3.Primitives
             }
         }
 
-        public Rectangle(Point3D a, Point3D b, Point3D c, Point3D d, Point3D normal) : this(a, b, c, d, true)
+        public Rectangle(FloatPoint3D a, FloatPoint3D b, FloatPoint3D c, FloatPoint3D d, FloatPoint3D normal) : this(a, b, c, d, true)
         {
             SetNormal(normal);
         }
 
-        public Rectangle(Point3D a, Point3D b, Point3D c, Point3D d, FloatPoint3D normal) : this(a, b, c, d, true)
-        {
-            SetNormal(normal);
-        }
-
-        public Rectangle(Point3D center, int height, int width, bool autoNormalDisabled)
+        public Rectangle(FloatPoint3D center, float height, float width, bool autoNormalDisabled)
         {
             // Todo: fix only X 
-            Point3D a = new Point3D(center.X - width / 2, center.Y, center.Z - height / 2);
-            Point3D b = new Point3D(center.X + width / 2, center.Y, center.Z - height / 2);
-            Point3D c = new Point3D(center.X + width / 2, center.Y, center.Z + height / 2);
-            Point3D d = new Point3D(center.X - width / 2, center.Y, center.Z + height / 2);
+            FloatPoint3D a = new FloatPoint3D(center.X - width / 2, center.Y, center.Z - height / 2);
+            FloatPoint3D b = new FloatPoint3D(center.X + width / 2, center.Y, center.Z - height / 2);
+            FloatPoint3D c = new FloatPoint3D(center.X + width / 2, center.Y, center.Z + height / 2);
+            FloatPoint3D d = new FloatPoint3D(center.X - width / 2, center.Y, center.Z + height / 2);
             Build(a, b, c, d);
             if (!autoNormalDisabled)
             {
@@ -47,7 +42,7 @@ namespace CGLab3.Primitives
             }
         }
 
-        public Rectangle(Point3D center, int height, int width) : this(center, height, width, false)
+        public Rectangle(FloatPoint3D center, int height, int width) : this(center, height/100, width/100, false) // DANGER
         {
             
         }
@@ -58,7 +53,7 @@ namespace CGLab3.Primitives
             return this;
         }
 
-        private void Build(Point3D a, Point3D b, Point3D c, Point3D d)
+        private void Build(FloatPoint3D a, FloatPoint3D b, FloatPoint3D c, FloatPoint3D d)
         {
             ActualPoints[0] = a;
             ActualPoints[1] = b;

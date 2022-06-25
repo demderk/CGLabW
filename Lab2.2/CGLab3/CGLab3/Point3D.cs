@@ -15,6 +15,11 @@ namespace CGLab3
             Y = y;
             Z = z;
         }
+
+        public FloatPoint3D ToFloatPoint3D()
+        {
+            return new FloatPoint3D(this, 100);
+        }
     }
 }
 

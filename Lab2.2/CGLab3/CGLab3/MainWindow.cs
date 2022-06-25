@@ -179,66 +179,64 @@ namespace CGLab3
         private void BuildScene()
         {
             // HALL
-            //var leftWallHall = new Wall(new Point3D(0, 0, 5), new Point3D(1000, 0, 5), 30, 10);
-            //leftWallHall.Merge(new Wall(new Point3D(0, 30, 5), new Point3D(300, 30, 5), 100, 10));
-            //leftWallHall.Merge(new Wall(new Point3D(600, 30, 5), new Point3D(1000, 30, 5), 100, 10));
-            //leftWallHall.Merge(new Wall(new Point3D(0, 130, 5), new Point3D(1000, 130, 5), 30, 10));
-            //Map.AddShape(leftWallHall);
-            //var backWallHall = new Wall(new Point3D(1000 - 5, 0, 0), new Point3D(1000 - 5, 0, 700), 160, 10);
-            //backWallHall.Merge(new Wall(new Point3D(1000 - 5, 0, 800), new Point3D(1000 - 5, 0, 1000), 160, 10));
-            //Map.AddShape(backWallHall);
-            //var rightWallHall = new Wall(new Point3D(1000 - 5, 0, 1000 - 5), new Point3D(300, 0, 1000 - 5), 160, 10);
-            //rightWallHall.Merge(new Wall(new Point3D(200, 0, 1000 - 5), new Point3D(5, 0, 1000 - 5), 160, 10));
-            //Map.AddShape(rightWallHall);
-            //var frontWallHall = new Wall(new Point3D(5, 0, 1000), new Point3D(5, 0, 0), 160, 10);
-            //Map.AddShape(frontWallHall);
-            //Map.AddShape(new Cube(new Point3D(0, -30, 0), new Point3D(1000, -30, 0), new Point3D(1000, -30, 1000), new Point3D(0, -30, 1000), 30));
-            //Map.AddShape(new Cube(new Point3D(0, 160, 0), new Point3D(1000, 160, 0), new Point3D(1000, 160, 1000), new Point3D(0, 160, 1000), 30));
+            var leftWallHall = new Wall(new Point3D(0, 0, 5), new Point3D(1000, 0, 5), 30, 10);
+            leftWallHall.Merge(new Wall(new Point3D(0, 30, 5), new Point3D(300, 30, 5), 100, 10));
+            leftWallHall.Merge(new Wall(new Point3D(600, 30, 5), new Point3D(1000, 30, 5), 100, 10));
+            leftWallHall.Merge(new Wall(new Point3D(0, 130, 5), new Point3D(1000, 130, 5), 30, 10));
+            Map.AddShape(leftWallHall);
+            var backWallHall = new Wall(new Point3D(1000 - 5, 0, 0), new Point3D(1000 - 5, 0, 700), 160, 10);
+            backWallHall.Merge(new Wall(new Point3D(1000 - 5, 0, 800), new Point3D(1000 - 5, 0, 1000), 160, 10));
+            Map.AddShape(backWallHall);
+            var rightWallHall = new Wall(new Point3D(1000 - 5, 0, 1000 - 5), new Point3D(300, 0, 1000 - 5), 160, 10);
+            rightWallHall.Merge(new Wall(new Point3D(200, 0, 1000 - 5), new Point3D(5, 0, 1000 - 5), 160, 10));
+            Map.AddShape(rightWallHall);
+            var frontWallHall = new Wall(new Point3D(5, 0, 1000), new Point3D(5, 0, 0), 160, 10);
+            Map.AddShape(frontWallHall);
+            Map.AddShape(new Cube(new Point3D(0, -30, 0), new Point3D(1000, -30, 0), new Point3D(1000, -30, 1000), new Point3D(0, -30, 1000), 30));
+            Map.AddShape(new Cube(new Point3D(0, 160, 0), new Point3D(1000, 160, 0), new Point3D(1000, 160, 1000), new Point3D(0, 160, 1000), 30));
 
-            //// BEDROOM
-            //var backWallBedRoom = new Wall(new Point3D(1500 - 5, 0, 400), new Point3D(1500 - 5, 0, 1000), 160, 10);
-            //var leftWallBedroom = new Wall(new Point3D(1000, 0, 400 + 5), new Point3D(1500, 0, 400 + 5), 30, 10);
-            //leftWallBedroom.Merge(new Wall(new Point3D(1000, 30, 400 + 5), new Point3D(1200, 30, 400 + 5), 100, 10));
-            //leftWallBedroom.Merge(new Wall(new Point3D(1300, 30, 400 + 5), new Point3D(1500, 30, 400 + 5), 100, 10));
-            //leftWallBedroom.Merge(new Wall(new Point3D(1000, 130, 400 + 5), new Point3D(1500, 130, 400 + 5), 30, 10));
-            //var rightWallBedroom = new Wall(new Point3D(1500 - 5, 0, 1000 - 5), new Point3D(1300 - 5, 0, 1000 - 5), 160, 10);
-            //rightWallBedroom.Merge(new Wall(new Point3D(1200 - 5, 0, 1000 - 5), new Point3D(1000 - 5, 0, 1000 - 5), 160, 10));
-            //Map.AddShape(new Cube(new Point3D(1000, -30, 400), new Point3D(1500, -30, 400), new Point3D(1500, -30, 1000), new Point3D(1000, -30, 1000), 30));
-            //Map.AddShape(new Cube(new Point3D(1000, 160, 400), new Point3D(1500, 160, 400), new Point3D(1500, 160, 1000), new Point3D(1000, 160, 1000), 30));
-            //Map.AddShape(backWallBedRoom);
-            //Map.AddShape(leftWallBedroom);
-            //Map.AddShape(rightWallBedroom);
+            // BEDROOM
+            var backWallBedRoom = new Wall(new Point3D(1500 - 5, 0, 400), new Point3D(1500 - 5, 0, 1000), 160, 10);
+            var leftWallBedroom = new Wall(new Point3D(1000, 0, 400 + 5), new Point3D(1500, 0, 400 + 5), 30, 10);
+            leftWallBedroom.Merge(new Wall(new Point3D(1000, 30, 400 + 5), new Point3D(1200, 30, 400 + 5), 100, 10));
+            leftWallBedroom.Merge(new Wall(new Point3D(1300, 30, 400 + 5), new Point3D(1500, 30, 400 + 5), 100, 10));
+            leftWallBedroom.Merge(new Wall(new Point3D(1000, 130, 400 + 5), new Point3D(1500, 130, 400 + 5), 30, 10));
+            var rightWallBedroom = new Wall(new Point3D(1500 - 5, 0, 1000 - 5), new Point3D(1300 - 5, 0, 1000 - 5), 160, 10);
+            rightWallBedroom.Merge(new Wall(new Point3D(1200 - 5, 0, 1000 - 5), new Point3D(1000 - 5, 0, 1000 - 5), 160, 10));
+            Map.AddShape(new Cube(new Point3D(1000, -30, 400), new Point3D(1500, -30, 400), new Point3D(1500, -30, 1000), new Point3D(1000, -30, 1000), 30));
+            Map.AddShape(new Cube(new Point3D(1000, 160, 400), new Point3D(1500, 160, 400), new Point3D(1500, 160, 1000), new Point3D(1000, 160, 1000), 30));
+            Map.AddShape(backWallBedRoom);
+            Map.AddShape(leftWallBedroom);
+            Map.AddShape(rightWallBedroom);
 
 
-            //// LUMBER
-            //var backWallLumber = new Wall(new Point3D(1400 - 5, 0, 1000 - 5), new Point3D(1400 - 5, 0, 1400), 160, 10);
-            //var rightWallLumber = new Wall(new Point3D(1400 - 10, 0, 1400 - 5), new Point3D(1100 + 5, 0, 1400), 160, 10);
-            //var frontWallLumber = new Wall(new Point3D(1100 + 5, 0, 1400), new Point3D(1100 + 5, 0, 1000), 160, 10);
-            //Map.AddShape(new Cube(new Point3D(1400, -30, 1000), new Point3D(1400, -30, 1400), new Point3D(1100, -30, 1400), new Point3D(1100, -30, 1000), 30));
-            //Map.AddShape(new Cube(new Point3D(1400, 160, 1000), new Point3D(1400, 160, 1400), new Point3D(1100, 160, 1400), new Point3D(1100, 160, 1000), 30));
-            //Map.AddShape(backWallLumber);
-            //Map.AddShape(rightWallLumber);
-            //Map.AddShape(frontWallLumber);
+            // LUMBER
+            var backWallLumber = new Wall(new Point3D(1400 - 5, 0, 1000 - 5), new Point3D(1400 - 5, 0, 1400), 160, 10);
+            var rightWallLumber = new Wall(new Point3D(1400 - 10, 0, 1400 - 5), new Point3D(1100 + 5, 0, 1400), 160, 10);
+            var frontWallLumber = new Wall(new Point3D(1100 + 5, 0, 1400), new Point3D(1100 + 5, 0, 1000), 160, 10);
+            Map.AddShape(new Cube(new Point3D(1400, -30, 1000), new Point3D(1400, -30, 1400), new Point3D(1100, -30, 1400), new Point3D(1100, -30, 1000), 30));
+            Map.AddShape(new Cube(new Point3D(1400, 160, 1000), new Point3D(1400, 160, 1400), new Point3D(1100, 160, 1400), new Point3D(1100, 160, 1000), 30));
+            Map.AddShape(backWallLumber);
+            Map.AddShape(rightWallLumber);
+            Map.AddShape(frontWallLumber);
 
-            ////DECOR
-            //var TV = new Wall(new Point3D(15, 30, 400), new Point3D(15, 30, 600), 100, 10).ColorFill(Color.BlueViolet);
-            //var Schaf = new Wall(new Point3D(1120, 0, 1100), new Point3D(1120, 0, 1300), 160, 20).ColorFill(Color.SandyBrown);
-            //Map.AddShape(TV);
-            //Map.AddShape(Schaf);
+            //DECOR
+            var TV = new Wall(new Point3D(15, 30, 400), new Point3D(15, 30, 600), 100, 10).ColorFill(Color.BlueViolet);
+            var Schaf = new Wall(new Point3D(1120, 0, 1100), new Point3D(1120, 0, 1300), 160, 20).ColorFill(Color.SandyBrown);
+            Map.AddShape(TV);
+            Map.AddShape(Schaf);
             //Map.AddShape(new Prism(new Point3D(435, 0, 435), 40, 40, 5).ColorFill(Color.BlanchedAlmond));
-            //Map.AddShape(new Pyramid(new Point3D(1300, 0, 600), 300, 100, 300).ColorFill(Color.PaleGoldenrod));
+            Map.AddShape(new Pyramid(new Point3D(1300, 0, 600), 300, 100, 300).ColorFill(Color.PaleGoldenrod));
 
 
-            //// Light Visualization
-            //Map.AddShape(new Cube(new Point3D(900, 100, 900), 10, 10, 10));
-            //Map.AddShape(new Cube(new Point3D(1050, 100, 500), 10, 10, 10));
-            //Map.AddShape(new Cube(new Point3D(1350, 100, 1350), 10, 10, 10));
+            // Light Visualization
+            Map.AddShape(new Cube(new Point3D(900, 100, 900), 10, 10, 10));
+            Map.AddShape(new Cube(new Point3D(1050, 100, 500), 10, 10, 10));
+            Map.AddShape(new Cube(new Point3D(1350, 100, 1350), 10, 10, 10));
 
-            //Map.AddShape(new Cube(new Point3D(0, 0, 0), 50, 50, 50));
-
-            InternalObject intern = new InternalObject();
-            intern.Import("a");
-            Map.AddShape(intern);
+            //InternalObject intern = new InternalObject();
+            //intern.Import(@"/Users/roman/Desktop/untitled.obj");
+            //Map.AddShape(intern);
         }
     }
 }

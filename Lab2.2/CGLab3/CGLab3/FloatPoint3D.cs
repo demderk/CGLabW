@@ -33,8 +33,6 @@ namespace CGLab3
 
         public Vector3 ToVector3() => new Vector3(X, Y, Z);
 
-        public Point3D ToPoint3D => new Point3D((int)(X * 100), (int)(Y * 100), (int)(Z * 100)); // TODO: EXPEREMENTAL
-
         public override string ToString()
         {
             return $"{X} {Y} {Z}";

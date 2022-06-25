@@ -47,7 +47,7 @@ namespace CGLab3.ImportObjects
 
         public void Import(string path)
         {
-            string[] input = File.ReadAllLines(@"/Users/roman/Desktop/untitled.obj");
+            string[] input = File.ReadAllLines(path);
 
 
             Build(input);
@@ -161,9 +161,9 @@ namespace CGLab3.ImportObjects
 
             for (int i = start; i < text.Length; i++)
             {
-                if (!(text[i][0] == 'v' && text[i][1] == ' '))
+                if (!(text[i].StartsWith("v ")))
                 {
-                    break;
+                    continue;
                 }
                 var xyz = fFiler.Matches(text[i]);
                 if (xyz.Count != 3)
@@ -185,9 +185,9 @@ namespace CGLab3.ImportObjects
 
             for (int i = start; i < text.Length; i++)
             {
-                if (!(text[i][0] == 'v' && text[i][1] == 'n'))
+                if (!(text[i].StartsWith("vn")))
                 {
-                    break;
+                    continue;
                 }
                 var xyz = fFiler.Matches(text[i]);
                 if (xyz.Count != 3)
@@ -220,10 +220,10 @@ namespace CGLab3.ImportObjects
             }
             foreach (var item in all)
             {
-                var o = new Polygon(item.Position[0].ToPoint3D, item.Position[1].ToPoint3D, item.Position[2].ToPoint3D);
+                var o = new Polygon(item.Position[0], item.Position[1], item.Position[2]);
                 for (int i = 2; i < item.Position.Length; i++)
                 {
-                    o.Add(item.Position[i].ToPoint3D);
+                    o.Add(item.Position[i]);
                 }
                 if (item.Normal != null)
                 {

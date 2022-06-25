@@ -30,7 +30,7 @@ namespace CGLab3.Primitives
             return new Point3D[] { e, f, g, h };
         }
 
-        private void Build(Point3D a, Point3D b, Point3D c, Point3D d, Point3D e, Point3D f, Point3D g, Point3D h)
+        private void Build(FloatPoint3D a, FloatPoint3D b, FloatPoint3D c, FloatPoint3D d, FloatPoint3D e, FloatPoint3D f, FloatPoint3D g, FloatPoint3D h)
         {
             var height = Math.Abs(a.Y - e.Y);
 
@@ -67,7 +67,13 @@ namespace CGLab3.Primitives
 
         }
 
-        new public Cube ColorFill(Color color)
+        private void Build(Point3D a, Point3D b, Point3D c, Point3D d, Point3D e, Point3D f, Point3D g, Point3D h)
+        {
+            Build(a.ToFloatPoint3D(), b.ToFloatPoint3D(), c.ToFloatPoint3D(), d.ToFloatPoint3D(),
+                e.ToFloatPoint3D(), f.ToFloatPoint3D(), g.ToFloatPoint3D(), h.ToFloatPoint3D());
+        }
+
+            new public Cube ColorFill(Color color)
         {
             base.ColorFill(color);
             return this;
